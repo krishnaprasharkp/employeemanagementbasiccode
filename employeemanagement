@@ -1,0 +1,97 @@
+#include <iostream>
+using namespace std;
+
+void add(int id[], string name[], int salary[], int day[], int year[], int *c)
+{
+    cout<<"Enter Employee ID: ";
+    cin>>id[*c];
+
+    cout<<"Enter Employee Name: ";
+    cin>>name[*c];
+
+    cout<<"Enter Employee Salary: ";
+    cin>>salary[*c];
+
+    cout<<"Enter Joining Day: ";
+    cin>>day[*c];
+
+    cout<<"Enter Joining Year: ";
+    cin>>year[*c];
+
+    *c=*c+1;
+
+    cout<<"Employee Added\n";
+}
+
+void show(int id[], string name[], int salary[], int day[], int year[], int c)
+{
+    for(int i=0;i<c;i++)
+    {
+        cout<<"\nEmployee ID: "<<id[i]<<endl;
+        cout<<"Employee Name: "<<name[i]<<endl;
+        cout<<"Employee Salary: "<<salary[i]<<endl;
+        cout<<"Joining Date: "<<day[i]<<"/"<<year[i]<<endl;
+    }
+}
+
+void calc(int id[], string name[], int salary[], int year[], int c)
+{
+    int x;
+    cout<<"Enter Employee ID: ";
+    cin>>x;
+
+    for(int i=0;i<c;i++)
+    {
+        if(id[i]==x)
+        {
+            cout<<"\nEmployee Name: "<<name[i]<<endl;
+            cout<<"Employee Salary (Monthly): "<<salary[i]<<endl;
+            cout<<"Employee Salary (Yearly): "<<salary[i]*12<<endl;
+
+            int service = 2025 - year[i];
+            cout<<"Years of Service: "<<service<<endl;
+
+            if(salary[i]>=50000)
+            cout<<"Annual Report: A\n";
+            else if(salary[i]>=40000)
+            cout<<"Annual Report: B\n";
+            else if(salary[i]>=30000)
+            cout<<"Annual Report: C\n";
+            else
+            cout<<"Annual Report: D\n";
+        }
+    }
+}
+
+int main()
+{
+    int id[100];
+    string name[100];
+    int salary[100];
+    int day[100];
+    int year[100];
+
+    int count=0;
+    int ch=0;
+
+    while(ch!=4)
+    {
+        cout<<"\n1 Add Employee\n";
+        cout<<"2 Show Employee\n";
+        cout<<"3 Calculate Salary\n";
+        cout<<"4 Exit\n";
+        cout<<"Enter Choice: ";
+        cin>>ch;
+
+        if(ch==1)
+        add(id,name,salary,day,year,&count);
+
+        else if(ch==2)
+        show(id,name,salary,day,year,count);
+
+        else if(ch==3)
+        calc(id,name,salary,year,count);
+    }
+
+   
+}
