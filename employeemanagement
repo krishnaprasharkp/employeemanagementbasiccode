@@ -68,7 +68,7 @@ int main()
     int id[100];
     string name[100];
     int salary[100];
-    int day[100];
+    int date[100];
     int year[100];
 
     int count=0;
